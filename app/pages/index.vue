@@ -22,7 +22,10 @@ import { AccordionItemComponent } from '#components';
       </section>
 
       <ContentSectionComponent id='About' title='About'>
-        <img src='~/assets/images/ProfileImage.png' class='float-right w-[20rem] border-2 border-stone-900 rounded-full' alt='Profile Image' />
+        <img
+          src='~/assets/images/ProfileImage.png'
+          class='float-right w-[20rem] border-2 border-stone-900 rounded-full'
+          alt='Profile Image' />
         <p>
         Hello dear reader,
         <br />
@@ -127,23 +130,4 @@ I would describe myself as open, honest, and positive, though I am also quite in
     li
       ul
         padding-left: 4rem
-
-  .section
-    padding:
-      inline: 4rem
-
-  .section-title
-    line-height: 1
-    font:
-      size: 14rem
-
-    @media screen and (max-width: 768px)
-      font:
-        size: 8rem
-
-  .body,
-  .section-body
-    font:
-      size: 1.5rem
-      family: 'Epunda Slab'
 </style>
