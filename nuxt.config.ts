@@ -37,6 +37,7 @@ export default defineNuxtConfig({
     icons: {
       solid: [
         'caret-down',
+        'heart',
       ],
     },
   },

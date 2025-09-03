@@ -20,7 +20,7 @@
           v-if='menuStore.isMenuOpen'
           @click='menuStore.toggleMenu'
           :to='{ hash: props.to }'
-          class='block text-white text-center hover:text-[#ccc]'
+          class='block text-white text-center hover:text-[#ccc] break-words text-[7rem] max-md:text-5xl'
           :class='{ active: props.isActive }'>
           <span>{{ props.linkText }}</span>
         </NuxtLink>
@@ -36,7 +36,6 @@
         line-height: 1
         font:
           family: 'Bebas Neue'
-          size: 7rem
 
         &.active
           text-decoration: underline

@@ -15,8 +15,8 @@
 
 <template>
   <div
-    :class='{ "bg-stone-900 text-white": props.dark }'
-    class='accordion-item relative block mb-2 border-2 border-stone-900 overflow-hidden transition-all transition-duration-200'>
+    :class='{ "bg-stone-800 text-white": props.dark }'
+    class='accordion-item relative block mb-2 border-2 border-stone-800 overflow-hidden transition-all transition-duration-200'>
     <header
       :class='{ "hover:bg-stone-950": props.dark, "hover:bg-stone-50": !props.dark }'
       class='header relative p-2 px-4 cursor-pointer'
@@ -27,7 +27,7 @@
     </header>
     <Transition name='fade'>
       <section
-        :class='{ "border-stone-50 bg-stone-900 text-white": props.dark, "border-stone-950": !props.dark }'
+        :class='{ "border-stone-50 bg-stone-800 text-white": props.dark, "border-stone-950": !props.dark }'
         class='body p-2 px-4 pt-6 border-t-2'
         v-if='isOpen'>
         <slot />
