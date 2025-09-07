@@ -1,75 +1,17 @@
-# Nuxt Minimal Starter
-
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
-Make sure to install dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+# FELIX CERVIN
+  
+  This is the personal website of Felix Cervin, a software developer and designer. The website showcases his portfolio, skills, and contact information.
+  
+  ## Technologies Used
+  
+  - [Nuxt.js](https://nuxtjs.org/): A powerful framework for building server-side rendered Vue.js applications.
+  - [Vue.js](https://vuejs.org/): A progressive JavaScript framework for building user interfaces.
+  - [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework for rapid UI development.
+  - [FontAwesome](https://fontawesome.com/): A popular icon library used for adding icons to the website.
+  
+  ## Features
+  
+  - Responsive design: The website is optimized for various screen sizes and devices.
+  - Portfolio showcase: Displays a collection of projects and works by Felix Cervin.
+  - Contact form: Allows visitors to get in touch with Felix Cervin directly through the website.
+  - Smooth animations: Enhances user experience with subtle animations and transitions.
