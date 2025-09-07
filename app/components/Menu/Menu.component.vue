@@ -10,8 +10,15 @@
     <div
       v-show='menuStore.isMenuOpen'
       id='Menu'
-      class='menu fixed w-full h-full top-0 left-0 bg-stone-900 z-50'>
+      class='menu fixed w-full h-full top-0 left-0 bg-stone-900 z-[100]'>
       <div class='menu-container flex justify-center items-center w-full h-full'>
+        <header class='menu-header absolute flex top-0 left-0 max-w-full w-full justify-center h-28'>
+          <div class='menu-header-container relative max-w-7xl w-full h-full p-4'>
+            <button
+              @click='menuStore.toggleMenu'
+              class='menu-close relative float-right w-24 h-24 right-0'></button>
+          </div>
+        </header>
         <MenuListComponent>
           <MenuItemComponent
             to='#Landing'
@@ -30,14 +37,6 @@
             linkText='Goals'
             :isActive='menuStore.getActiveSection === "#Goals"' />
         </MenuListComponent>
-
-        <div class='menu-close absolute max-w-7xl top-0 left-0 right-0 mx-auto p-6'>
-          <div class='menu-close-container'>
-            <button
-              @click='menuStore.toggleMenu'
-              class='menu-close-button block w-28 float-right text-white text-8xl hover:text-[#ccc]'>&times;</button>
-          </div>
-        </div>
       </div>
     </div>
   </Transition>
@@ -45,6 +44,35 @@
 
 <style lang="sass" scoped>
   #Menu
+
+    .menu-header
+      button
+        &::before
+          content: ''
+          position: absolute
+          width: 50%
+          height: 4px
+          top: 50%
+          left: 25%
+          background-color: #fff
+          transform: rotate(45deg)
+          transition: transform 200ms
+
+        &::after
+          content: ''
+          position: absolute
+          width: 50%
+          height: 4px
+          top: 50%
+          left: 25%
+          background-color: #fff
+          transform: rotate(-45deg)
+          transition: transform 200ms
+
+        &:hover
+          &::before, &::after
+            background-color: #ccc
+            transform: scale(1.2)
 
     &.slide-enter-active,
     &.slide-leave-active

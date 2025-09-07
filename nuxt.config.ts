@@ -3,6 +3,8 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
+  ssr: false,
+
   app: {
     head: {
       title: 'Felix Cervin',
@@ -14,6 +16,10 @@ export default defineNuxtConfig({
       ]
     },
   },
+
+  plugins: [
+
+  ],
 
   modules: [
     '@pinia/nuxt',
@@ -38,7 +44,20 @@ export default defineNuxtConfig({
       solid: [
         'caret-down',
         'heart',
+        'envelope',
+        'at',
+        'phone',
+        'hand-pointer',
+        'computer-mouse',
       ],
+      brands: [
+        'linkedin',
+        'github',
+        'instagram',
+        'twitter',
+        'x-twitter',
+        'soundcloud',
+      ]
     },
   },
 })

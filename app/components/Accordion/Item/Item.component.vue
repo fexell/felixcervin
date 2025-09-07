@@ -4,12 +4,13 @@
   const props = defineProps({
     title: String,
     dark: Boolean,
+    open: Boolean,
   })
 
-  const isOpen = ref( false )
+  const emit = defineEmits([ 'toggle' ])
 
   function toggle() {
-    isOpen.value = !isOpen.value
+    emit('toggle')
   }
 </script>
 
@@ -23,13 +24,13 @@
       @click='toggle'>
       <h3
       class='title py-2'>{{ props.title }}</h3>
-      <font-awesome icon='caret-down' class='absolute right-4 top-1/2 -translate-y-1/2' :class='{ "rotate-180": isOpen }' />
+      <font-awesome icon='caret-down' class='absolute right-4 top-1/2 -translate-y-1/2' :class='{ "rotate-180": props.open }' />
     </header>
     <Transition name='fade'>
       <section
         :class='{ "border-stone-50 bg-stone-800 text-white": props.dark, "border-stone-950": !props.dark }'
         class='body p-2 px-4 pt-6 border-t-2'
-        v-if='isOpen'>
+        v-if='props.open'>
         <slot />
       </section>
     </Transition>

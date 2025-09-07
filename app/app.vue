@@ -4,45 +4,60 @@
   const menuStore = useMenuStore()
 
   const sections = [ '#Landing', '#About', '#SkillsAndTechnologies', '#Goals' ]
-
   let currentActiveSection = ''
+  let sectionElements = []
 
   function updateURL( sectionId ) {
-    const url = new URL( window.location )
-
     if( sectionId )
-      history.replaceState( null, '', sectionId )
+      history.replaceState( history.state, '', sectionId )
   }
 
-  function onScroll() {
-    const scrollPosition = window.scrollY + window.innerHeight / 2
-    let newSection = ''
+  function throttle( fn, wait ) {
+    let lastTime = 0
 
-    for( const sectionId of sections ) {
-      const sectionElement = document.querySelector( sectionId )
+    return function( ...args ) {
+      const now = Date.now()
 
-      if( sectionElement ) {
-        const rect = sectionElement.getBoundingClientRect()
-        const sectionTop = rect.top + window.scrollY
-        const sectionHeight = rect.height
-
-        if( scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight ) {
-          newSection = sectionId
-          break
-        }
+      if( now - lastTime >= wait ) {
+        lastTime = now
+        fn.apply( this, args )
       }
     }
+  }
+
+  function findActiveSection() {
+    const scrollPosition = window.scrollY + window.innerHeight / 2
+
+    for( let i = 0; i < sectionElements.length; i++ ) {
+      const el = sectionElements[i]
+
+      if( !el )
+        continue
+
+      const rect = el.getBoundingClientRect()
+      const sectionTop = rect.top + window.scrollY
+      const sectionHeight = rect.height
+
+      if( scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight ) {
+        return sections[i]
+      }
+    }
+  }
+
+  const onScroll = throttle(() => {
+    const newSection = findActiveSection()
 
     if( newSection && newSection !== currentActiveSection ) {
       currentActiveSection = newSection
-      menuStore.setActiveSection( newSection )
-      updateURL( newSection)
+      menuStore.setActiveSection( currentActiveSection )
+      updateURL( currentActiveSection )
     }
-  }
+  }, 100)
 
   onMounted(() => {
+    sectionElements = sections.map( id => document.querySelector( id ) )
     window.addEventListener( 'scroll', onScroll )
-    onScroll()
+    onScroll() // Initial check
   })
 
   onBeforeMount(() => {
